@@ -15,37 +15,6 @@ const Navbar = () => {
               variant="h6"
               noWrap
               component="a"
-              href="/add-employee"
-              sx={{
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              <Link
-                href="/add-employee"
-                id="RouterNavbar"
-                sx={{
-                  mr: 2,
-                  display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "white",
-                  textDecoration: "none",
-                }}
-              >
-                Register
-              </Link>
-            </Typography>
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
               href="/login"
               sx={{
                 mr: 2,
@@ -71,6 +40,37 @@ const Navbar = () => {
                 }}
               >
                 LogIn
+              </Link>
+            </Typography>
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="/add-employee"
+              sx={{
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              <Link
+                href="/add-employee"
+                id="RouterNavbar"
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  letterSpacing: ".3rem",
+                  color: "white",
+                  textDecoration: "none",
+                }}
+              >
+                Register
               </Link>
             </Typography>
           </Toolbar>

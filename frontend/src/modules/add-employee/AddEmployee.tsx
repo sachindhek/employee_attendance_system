@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useFormik } from "formik";
 import axios from "axios";
 import { defaultEmployee, EmployeeType } from "../../model";
 import FormControl from "@mui/material/FormControl";
@@ -14,6 +15,13 @@ const AddEmployee = () => {
     const { name, value } = e.target;
     setEmployee({ ...employee, [name]: value });
   };
+
+  // const formik:EmployeeType = useFormik({
+  //   initialValues{
+  //       ...defaultEmployee,
+  //     }
+  //   })
+  // }
 
   const submitValidDetails = (e: any) => {
     e.preventDefault();

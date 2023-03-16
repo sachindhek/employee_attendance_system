@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+// import FormControlLabel from "@mui/material/FormControlLabel";
+// import Checkbox from "@mui/material/Checkbox";
 import Container from "@mui/material/Container";
 import { LoginType, defaultLoginType } from "../../model";
-import { Grid, Box, Typography, Button, TextField } from "@mui/material";
+import { Box, Typography, Button, TextField } from "@mui/material";
 
 const Login = () => {
   const [logindetail, setLogInDetail] = useState<LoginType>({
@@ -23,7 +23,12 @@ const Login = () => {
         emp_email: logindetail.emp_email,
         emp_password: logindetail.emp_password,
       })
-      .then((res) => console.log("response from api", res))
+      .then((res) => {
+        console.log(res);
+        const { token } = res.data;
+        localStorage.setItem("token", token);
+        localStorage.getItem("token");
+      })
       .catch((err) => {
         console.log(err.message);
       });

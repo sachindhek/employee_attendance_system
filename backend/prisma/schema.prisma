@@ -11,11 +11,20 @@ datasource db {
 }
 
 model Employee {
-  id           Int    @unique @default(autoincrement())
-  emp_id       String @unique
+  id           Int       @unique @default(autoincrement())
+  emp_id       String    @unique
   emp_name     String
-  emp_email    String @unique
-  emp_phone    String @unique
+  emp_email    String    @unique
+  emp_phone    String    @unique
   emp_address  String
-  emp_password String @unique
+  emp_password String    @unique
+  timelogs     TimeLog[]
+}
+
+model TimeLog {
+  id       Int      @unique @default(autoincrement())
+  employee Employee @relation(fields: [emp_id], references: [id])
+  emp_id   Int
+  inTime   DateTime
+  outTime  DateTime
 }

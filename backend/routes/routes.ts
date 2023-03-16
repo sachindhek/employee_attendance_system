@@ -3,10 +3,15 @@
 const express = require("express");
 const router = express.Router();
 // const { verifyToken } = require("../middleware/middleware");
-const { loginEmployee, postEmployee } = require("../controller/apicontroller");
+const {
+  loginEmployee,
+  postEmployee,
+  postTimeLog,
+  getToken,
+} = require("../controller/apicontroller");
 
 router.post("/api/login", loginEmployee);
 router.post("/addEmployee", postEmployee);
-router.post("/add_time_log");
+router.post("/api/auth/getUser", getToken);
 
 module.exports = router;

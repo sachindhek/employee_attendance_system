@@ -1,9 +1,13 @@
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+const db = new PrismaClient();
 
-const employeeLogin = async (emp_email: string, emp_password: string) => {
-  return prisma.employee.findMany({
+const employeeLogin = async (
+  id: number,
+  emp_email: string,
+  emp_password: string
+) => {
+  return db.employee.findMany({
     where: {
       AND: {
         emp_email,
@@ -12,7 +16,7 @@ const employeeLogin = async (emp_email: string, emp_password: string) => {
     },
     select: {
       emp_email: true,
-      emp_password: true,
+      id: true,
     },
   });
 };
@@ -25,9 +29,15 @@ const insertEmployee = async (
   emp_address: string,
   emp_password: string
 ) => {
-  return prisma.employee.create({
+  return db.employee.create({
     data: { emp_id, emp_name, emp_email, emp_phone, emp_address, emp_password },
   });
 };
 
-module.exports = { employeeLogin, insertEmployee };
+const addtimelog = async (emp_id: number, inTime: any, outTime: any) => {
+  return db.timeLog.create({
+    data: { emp_id, inTime, outTime },
+  });
+};
+
+module.exports = { employeeLogin, insertEmployee, addtimelog };
